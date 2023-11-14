@@ -18,11 +18,11 @@
     System.Console.WriteLine(lab);
 
     // erro de stackoverflow
-    // Console.WriteLine($"0.62");
-    // lab = new Labirinto(42,42);
-    // lab.dencidade=0.62;
-    // lab.init();
-    // System.Console.WriteLine(lab);
+    Console.WriteLine($"0.61");
+    lab = new Labirinto(42,42);
+    lab.dencidade=0.62;
+    lab.init();
+    System.Console.WriteLine(lab);
 }
 System.Console.WriteLine($"geracao de labirintos ");
 System.Console.WriteLine($"1 - imprimir testes padrao ");

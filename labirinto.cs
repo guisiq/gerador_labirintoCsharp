@@ -5,9 +5,11 @@ public class Labirinto
     private Estados[][] mapa{ set; get;}
     private int colunas {set; get;}
     private int linhas {set; get;}
-    public  (int i,int e) saida{set;get;}
-    public (int i ,int e) entrada{set;get;} 
-    [Range(0,0.5)]
+    public  (int i,int e) saida{
+        get => (this.linhas-2,this.colunas-2);
+    }
+    public (int i ,int e) entrada{init;get;} 
+    [Range(0,0.6)]
     public double dencidade{ set; get;}
     public void initBordas(bool _ = false){
         for (int i = 0; i < mapa.Length; i++){
@@ -28,7 +30,7 @@ public class Labirinto
             mapa[i]= new Estados[colunas];
         }
         this.entrada = (1,1);
-        this.saida = (linhas-2,colunas-2);
+        //this.saida = (linhas-2,colunas-2);
     }
 
     public void init(){
@@ -117,14 +119,13 @@ public class Labirinto
         {
             for (var e = 0; e < this.mapa[i].Length; e++)
             {
-                String p = this.mapa[i][e] switch
+                var p = this.mapa[i][e] switch
                 {
-                    Estados.Vasio       => "  ",
-                    Estados.Percorido   => "  ",
                     Estados.Parede      => "██",
                     Estados.Caminho     => "° ",
                     Estados.Entrada     => "» ",
-                    Estados.Saida       => "] "
+                    Estados.Saida       => "] ",
+                    _                   => "  "
                 };
                 
                     s+= p ;
